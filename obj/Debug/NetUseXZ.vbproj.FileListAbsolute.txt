@@ -1,0 +1,12 @@
+D:\0_vs\NetUseXZ\bin\Debug\NetUseXZ.exe.config
+D:\0_vs\NetUseXZ\bin\Debug\NetUseXZ.exe
+D:\0_vs\NetUseXZ\bin\Debug\NetUseXZ.pdb
+D:\0_vs\NetUseXZ\bin\Debug\NetUseXZ.xml
+D:\0_vs\NetUseXZ\obj\Debug\NetUseXZ.vbprojAssemblyReference.cache
+D:\0_vs\NetUseXZ\obj\Debug\NetUseXZ.Form1.resources
+D:\0_vs\NetUseXZ\obj\Debug\NetUseXZ.Resources.resources
+D:\0_vs\NetUseXZ\obj\Debug\NetUseXZ.vbproj.GenerateResource.cache
+D:\0_vs\NetUseXZ\obj\Debug\NetUseXZ.vbproj.CoreCompileInputs.cache
+D:\0_vs\NetUseXZ\obj\Debug\NetUseXZ.exe
+D:\0_vs\NetUseXZ\obj\Debug\NetUseXZ.xml
+D:\0_vs\NetUseXZ\obj\Debug\NetUseXZ.pdb
