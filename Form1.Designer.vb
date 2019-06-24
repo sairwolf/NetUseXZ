@@ -30,15 +30,15 @@ Partial Class Form1
         Me.lbl_user = New System.Windows.Forms.Label()
         Me.lbl_pwd = New System.Windows.Forms.Label()
         Me.lbl_server = New System.Windows.Forms.Label()
-        Me.lbl_ip = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbl_title = New System.Windows.Forms.Label()
+        Me.txt_ip = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'txt_user
         '
         Me.txt_user.Font = New System.Drawing.Font("標楷體", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.txt_user.Location = New System.Drawing.Point(219, 91)
+        Me.txt_user.Location = New System.Drawing.Point(219, 92)
         Me.txt_user.Name = "txt_user"
         Me.txt_user.Size = New System.Drawing.Size(119, 30)
         Me.txt_user.TabIndex = 0
@@ -46,7 +46,7 @@ Partial Class Form1
         'txt_pwd
         '
         Me.txt_pwd.Font = New System.Drawing.Font("標楷體", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.txt_pwd.Location = New System.Drawing.Point(219, 140)
+        Me.txt_pwd.Location = New System.Drawing.Point(219, 137)
         Me.txt_pwd.Name = "txt_pwd"
         Me.txt_pwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txt_pwd.Size = New System.Drawing.Size(119, 30)
@@ -103,16 +103,6 @@ Partial Class Form1
         Me.lbl_server.TabIndex = 6
         Me.lbl_server.Text = "主機："
         '
-        'lbl_ip
-        '
-        Me.lbl_ip.AutoSize = True
-        Me.lbl_ip.Font = New System.Drawing.Font("標楷體", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.lbl_ip.Location = New System.Drawing.Point(215, 53)
-        Me.lbl_ip.Name = "lbl_ip"
-        Me.lbl_ip.Size = New System.Drawing.Size(21, 21)
-        Me.lbl_ip.TabIndex = 7
-        Me.lbl_ip.Text = " "
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -135,14 +125,22 @@ Partial Class Form1
         Me.lbl_title.TabIndex = 5
         Me.lbl_title.Text = "連線網路磁碟機X: Z:"
         '
+        'txt_ip
+        '
+        Me.txt_ip.Font = New System.Drawing.Font("標楷體", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.txt_ip.Location = New System.Drawing.Point(219, 47)
+        Me.txt_ip.Name = "txt_ip"
+        Me.txt_ip.Size = New System.Drawing.Size(119, 30)
+        Me.txt_ip.TabIndex = 10
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(473, 358)
+        Me.Controls.Add(Me.txt_ip)
         Me.Controls.Add(Me.lbl_title)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.lbl_ip)
         Me.Controls.Add(Me.lbl_server)
         Me.Controls.Add(Me.lbl_pwd)
         Me.Controls.Add(Me.lbl_user)
@@ -165,7 +163,7 @@ Partial Class Form1
     Friend WithEvents lbl_user As Label
     Friend WithEvents lbl_pwd As Label
     Friend WithEvents lbl_server As Label
-    Friend WithEvents lbl_ip As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents lbl_title As Label
+    Friend WithEvents txt_ip As TextBox
 End Class

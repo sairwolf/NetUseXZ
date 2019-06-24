@@ -3,13 +3,14 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ip = "192.168.0.3"
-        lbl_ip.Text = ip
+        txt_ip.Text = ip
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim user, pwd
 
         TextBox2.Text = ""
+        ip = txt_ip.Text
         user = txt_user.Text
         pwd = txt_pwd.Text
 
@@ -150,5 +151,9 @@
         msg = PMsgDel(RunCmd(cmd))
 
         TextBox2.Text = msg
+    End Sub
+
+    Private Sub txt_user_TextChanged(sender As Object, e As EventArgs) Handles txt_user.TextChanged
+
     End Sub
 End Class
