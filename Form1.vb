@@ -1,9 +1,66 @@
-﻿Public Class Form1
+﻿Imports System
+Imports System.IO
+
+Public Class Form1
     Public ip As String
+    'Dim dvpath As String() = {"p: \\192.168.1.9\share\upi", "x: \\192.168.1.9\share", "z: \\192.168.1.9\homes"}
+    'Dim dvPath As String() = {"", "", "", "", "", "", "", "", "", ""}
+    Dim dvPath() As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ip = "192.168.0.3"
-        txt_ip.Text = ip
+        Dim fip As String
+        Dim line As String
+
+        Try
+            ' Create an instance of StreamReader to read from a file.
+            Dim sr As StreamReader = New StreamReader("xz.ini")
+            Dim temp() As String
+            Dim i As Integer
+            ' Read and display the lines from the file until the end 
+            ' of the file is reached.
+            i = 0
+            Do
+                line = sr.ReadLine()
+                If (line = Nothing) Then Exit Do
+                'Console.WriteLine(line)
+                If Microsoft.VisualBasic.Left(line, 1) <> "#" Then
+                    TextBox2.Text &= line & "*"
+                    'x: \\192.168.1.9\share
+                    temp = Split(line, "\")
+                    'MsgBox(temp(2))
+                    fip = temp(2)
+                    'dvPath(i) = line
+                    'TextBox2.Text &= line
+                    txt_ip.Text = fip
+                    i = i + 1
+                End If
+            Loop Until line Is Nothing
+
+            sr.Close()
+
+            'MsgBox(TextBox2.Text)
+            dvPath = TextBox2.Text.Split("*")
+
+            '任務完成 清空
+            TextBox2.Text = ""
+
+            'For Each bcc In dvPath
+            'If bcc.Length > 2 Then
+            'MsgBox(bcc)
+            'End If
+            'Next
+
+            'MsgBox(dvPath.Length)
+        Catch Ex As Exception
+            ' Let the user know what went wrong.
+            'Console.WriteLine("The file could not be read:")
+            'Console.WriteLine(Ex.Message)
+            'TextBox2.Text = "找不到xz.ini" & vbCrLf
+            txt_ip.Text = ip
+            'MsgBox(Ex.Message)
+        End Try
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -14,16 +71,32 @@
         user = txt_user.Text
         pwd = txt_pwd.Text
 
-        Dim RetVal
-        Dim cmdx
-        cmdx = "net use x: \\" & ip & "\share " & pwd & " /user:" & user
-        RetVal = Shell(cmdx)
+        '沒有參數檔則預設 x: z:
+        Dim xp As String = "x: \\" & ip & "\share" & "*" & "z: \\" & ip & "\homes"
+        'MsgBox("_" & xp & "_")
+
+        If Not IsArray(dvPath) Then
+            dvPath = xp.Split("*")
+        End If
+
+        Dim RetVal, cmdw
+        For Each bcc In dvPath
+            If bcc.Length > 2 Then
+                cmdw = "net use " & bcc & " " & pwd & " /user:" & user
+                RetVal = Shell(cmdw)
+                'MsgBox("_" & cmdw & "_")
+            End If
+        Next
+
+        'Dim cmdx
+        'cmdx = "net use x: \\" & ip & "\share " & pwd & " /user:" & user
+        'RetVal = Shell(cmdx)
         'MsgBox(cmdx)
         'RetVal = Shell("calc.exe")
 
-        Dim cmdz
-        cmdz = "net use z: \\" & ip & "\homes " & pwd & " /user:" & user
-        RetVal = Shell(cmdz)
+        'Dim cmdz
+        'cmdz = "net use z: \\" & ip & "\homes " & pwd & " /user:" & user
+        'RetVal = Shell(cmdz)
         'RetVal = Shell("calc.exe")
 
         'TextBox2 = cmdx & vbCrLf & cmdz
@@ -155,5 +228,9 @@
 
     Private Sub txt_user_TextChanged(sender As Object, e As EventArgs) Handles txt_user.TextChanged
 
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        Shell("explorer https://github.com/sairwolf ", vbNormalFocus)
     End Sub
 End Class

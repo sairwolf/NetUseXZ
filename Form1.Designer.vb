@@ -33,6 +33,8 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbl_title = New System.Windows.Forms.Label()
         Me.txt_ip = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txt_user
@@ -133,11 +135,23 @@ Partial Class Form1
         Me.txt_ip.Size = New System.Drawing.Size(119, 30)
         Me.txt_ip.TabIndex = 10
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(438, 6)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(33, 30)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 11
+        Me.PictureBox1.TabStop = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(473, 358)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.txt_ip)
         Me.Controls.Add(Me.lbl_title)
         Me.Controls.Add(Me.Label1)
@@ -151,6 +165,7 @@ Partial Class Form1
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.Text = "Net Use XZ"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -166,4 +181,5 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents lbl_title As Label
     Friend WithEvents txt_ip As TextBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
